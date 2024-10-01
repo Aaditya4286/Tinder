@@ -1,16 +1,18 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
+import { AppText, BOLD, FOURTEEN, SEMI_BOLD, SIXTEEN, TWELVE } from '../common';
+import { colors } from '../theme/colors';
 
 const ProfileCard = ({ profile }) => {
     return (
         <View style={styles.card}>
             <View style={styles.locationBox}>
-                <Text style={styles.locationText}>2 km</Text>
+                <AppText type={TWELVE} weight={BOLD} style={styles.locationText}>2 km</AppText>
             </View>
             <Image source={{ uri: profile.image }} style={styles.image} />
             <View style={styles.details}>
-                <Text style={styles.name}>{profile.name}, {profile.age}</Text>
-                <Text style={styles.bio}>{profile.bio}</Text>
+            <AppText type={SIXTEEN} weight={BOLD}>{profile.name}, {profile.age}</AppText>
+            <AppText type={FOURTEEN} weight={SEMI_BOLD} style={styles.bio}>{profile.bio}</AppText>
             </View>
         </View>
     );
@@ -21,7 +23,7 @@ const styles = StyleSheet.create({
         height: 400,
         width: '100%',
         borderRadius: 10,
-        backgroundColor: 'white',
+        backgroundColor: colors.white,
         justifyContent: 'center',
         alignItems: 'center',
         shadowColor: '#000',
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 10,
         left: 10,
-        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        backgroundColor: colors.white,
         padding: 5,
         borderRadius: 5,
         shadowColor: '#000',
@@ -70,9 +72,8 @@ const styles = StyleSheet.create({
         elevation: 2,
     },
     locationText: {
-        fontWeight: 'bold',
-        fontSize: 19,
-        color: '#333',
+
+        color: colors.gray,
     },
 });
 
